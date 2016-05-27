@@ -12,7 +12,7 @@ def connected(tag):
     # print(tag)
     res = binascii.b2a_hex(tag.idm)
     # res = str(tag.idm).encode("hex")
-    print("IDm=" + res)
+    print "IDm=" + res
 
 if __name__ == "__main__": 
     clf = nfc.ContactlessFrontend('usb')
