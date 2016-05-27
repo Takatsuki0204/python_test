@@ -14,7 +14,7 @@ x = pd.to_datetime(data["updated"]) + pd.offsets.Hour(9)
 y = data["temperature"]
 
 fig, ax = plt.subplots()
-ax.stackplot(x, y)
+ax.plot(x, y)
 
 hour = mdates.HourLocator(byhour=xrange(24), interval=6)
 ax.xaxis.set_major_locator(hour)
