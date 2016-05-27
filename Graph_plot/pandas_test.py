@@ -20,4 +20,4 @@ print(data.query("light == 193 & humidity == 50"))    # 条件文(&：and, |:or)
 print(data.query("index in [10, 20]"))    # 特定の行の表示
 print(data.sort("humidity", ascending = False))   # 降順でソート
 print(data[["temperature", "humidity"]].sum(axis=0))    # axis=1:横方向に計算
-data.to_csv("log.csv")    # csv形式で保存
+# data.to_csv("log.csv")    # csv形式で保存
