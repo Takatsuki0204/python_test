@@ -14,6 +14,7 @@ yhumidity = data["humidity"]
 
 fig = plt.figure(figsize=(15, 5))
 
+# ax1:Temp plot settings
 ax1 = fig.add_subplot(1, 2, 1)
 ax1.plot(xdate, ytemp)
 ax1.set_ylim(0, 40)
@@ -21,6 +22,7 @@ ax1.set_title("Temp")
 ax1.set_xlabel("Time")
 ax1.set_ylabel("Temp")
 
+# ax2:Humidity plot settings
 ax2 = fig.add_subplot(1, 2, 2)
 ax2.plot(xdate, yhumidity)
 ax2.set_ylim(0, 100)
