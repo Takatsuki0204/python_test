@@ -4,5 +4,5 @@
         "**/.git": false,
         "**/.svn": true,
         "**/.DS_Store": true
-    },
+    }
 }
