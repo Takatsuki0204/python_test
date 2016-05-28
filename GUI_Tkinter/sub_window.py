@@ -10,7 +10,7 @@ sub_win = None
 
 def message_window():
     global sub_win
-    if sub_win is None or sub_win.winfo_exists():
+    if sub_win is None or not sub_win.winfo_exists():
         sub_win = Toplevel()
         sub_win.title("About")
         Message(sub_win, aspect=200, text="message のサンプルプログラムです").pack()
