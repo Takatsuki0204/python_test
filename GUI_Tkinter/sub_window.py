@@ -6,10 +6,14 @@ from Tkinter import *
 root = Tk()
 root.option_add("*font", ("FixedSys", 14))
 root.title("sub window")
+sub_win = None
 
 def message_window():
-    sub_win = Toplevel()
-    Message(sub_win, text="message のサンプルプログラムです").pack()
+    global sub_win
+    if sub_win is None or sub_win.winfo_exists():
+        sub_win = Toplevel()
+        sub_win.title("About")
+        Message(sub_win, aspect=200, text="message のサンプルプログラムです").pack()
 
 # menuの設定
 m = Menu(root)
