@@ -13,7 +13,7 @@ def message_window():
     if sub_win is None or not sub_win.winfo_exists():
         sub_win = Toplevel()
         sub_win.title("About")
-        Message(sub_win, aspect=200, text="message のサンプルプログラムです").pack()
+        Message(sub_win, aspect=500, text="message のサンプルプログラムです").pack()
 
 # menuの設定
 m = Menu(root)
