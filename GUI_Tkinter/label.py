@@ -4,6 +4,8 @@
 from Tkinter import *
 
 root = Tk()
+root.option_add("*Button.font", "FixedSys 14") # ウィジェットのオプション設定
+root.option_add("*Button.background", "green")
 
 buff = StringVar()
 buff.set("")
