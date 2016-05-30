@@ -29,8 +29,8 @@ label = Label(root, image=image_data)
 label.pack()
 
 # menu
-m0 = Menu(root);
-root.configure(menu=m0);
+m0 = Menu(root)
+root.configure(menu=m0)
 
 m1 = Menu(m0, tearoff=0)
 m1.add_command(label="Open", under=0, command=load_file)
