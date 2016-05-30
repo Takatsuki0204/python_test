@@ -5,7 +5,7 @@ from Tkinter import *
 
 root = Tk()
 root.title("Main")
-root.option_add("*font", "FixedSys", 14)
+root.option_add("*font", ("FixedSys", 14))
 sub_win = None
 
 # message view
