@@ -12,6 +12,7 @@ root.title("ImageFileOpen")
 path_name = ""
 image_data = PhotoImage(width=64, height=64)
 
+# file load
 def load_file():
     global image_data, path_name
     filename = askopenfilename(filetypes=[("ImageFiles", (".gif", ".ppm")), 
