@@ -29,9 +29,12 @@ root.configure(menu=mbar)
 
 font = Menu(mbar, tearoff=False)
 mbar.add_cascade(label="Font", underline=0, menu=font)
-font.add_radiobutton(label="FixedSys", variable=action, value=0, command=changefont)
-font.add_radiobutton(label="Arial", variable=action, value=1, command=changefont)
-font.add_radiobutton(label="Timer", variable=action, value=2, command=changefont)
+font.add_radiobutton(label="FixedSys", variable=action,
+                     value=0, command=changefont)
+font.add_radiobutton(label="Arial", variable=action,
+                     value=1, command=changefont)
+font.add_radiobutton(label="Timer", variable=action,
+                     value=2, command=changefont)
 
 def show_time():
     buff.set(strftime("%H:%M:%S"))
