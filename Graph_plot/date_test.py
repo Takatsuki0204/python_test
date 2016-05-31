@@ -9,7 +9,6 @@ import matplotlib.dates as mdates
 import matplotlib.ticker as tick
 
 data = pd.read_json("http://192.168.10.121:3000/monitoring/122?date=20160523")
-
 x = pd.to_datetime(data["updated"]) + pd.offsets.Hour(9)
 y = data["temperature"]
 
