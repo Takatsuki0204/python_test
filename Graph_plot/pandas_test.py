@@ -1,12 +1,14 @@
 #! /usr/bin/python
 # encoding: utf-8
 
-import datetime
+import datetime, sqlite3
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
 data = pd.read_json("http://192.168.10.121:3000/monitoring/122?date=20160523")
+#connector = sqlite3.connect("C:\Users\TAKATSUKI\Documents\環境BOX\sqlite_db\environment.db")
+#data = pd.read_sql("select * from test", con=connector)
 
 print data.head(10)    # 先頭10行を表示
 print data.tail(20)    # 後尾20行を表示
