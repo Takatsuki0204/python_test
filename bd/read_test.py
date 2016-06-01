@@ -9,11 +9,11 @@ if __name__ == "__main__":
     cursor.execute("select * from test_2")
     
     result = cursor.fetchall()
-    
+    print result
     for row in result:
         print "===== Hit! ====="
         print "code -- " + unicode(row[0])
-        print "name -- " + unicode(row[0])
+        print "name -- " + unicode(row[1])
     
     cursor.close()
     connector.close()
