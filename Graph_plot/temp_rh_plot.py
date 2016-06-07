@@ -12,7 +12,7 @@ from matplotlib.font_manager import FontProperties
 fp = FontProperties(fname=r'C:\WINDOWS\Fonts\YuGothic.ttf', size=14)
 
 connector = sqlite3.connect("C:\Users\TAKATSUKI\Documents\環境BOX\sqlite_db\environment.db")
-data = pd.read_sql("SELECT * FROM environment WHERE datetime BETWEEN '2016-06-06 00:00:00' AND '2016-06-06 23:59:59'", connector)
+data = pd.read_sql("SELECT * FROM environment WHERE datetime BETWEEN '2016-06-07 00:00:00' AND '2016-06-07 23:59:59'", connector)
 connector.close()
 xdate = pd.to_datetime(data["datetime"])
 print xdate
