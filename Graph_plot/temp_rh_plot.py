@@ -14,12 +14,13 @@ today = datetime.date.today()
 fp = FontProperties(fname=r'C:\WINDOWS\Fonts\YuGothic.ttf', size=14)
 
 connector = sqlite3.connect("C:\Users\TAKATSUKI\Documents\環境BOX\sqlite_db\environment.db")
-
-sql = (
-    'SELECT * FROM environment '
+'''
+sql = ('SELECT * FROM environment '
     'WHERE datetime '
-    "BETWEEN '" + str(today) + " 00:00:00' AND '" + str(today) + " 23:59:59'"
-)
+    "BETWEEN '" + str(today) + " 00:00:00' AND '" + str(today) + " 23:59:59'")'''
+sql = ('SELECT * FROM environment '
+    'WHERE datetime '
+    "BETWEEN '2016-06-06 00:00:00' AND '2016-06-06 23:59:59'")
 data = pd.read_sql(sql, connector)
 connector.close()
 xdate = pd.to_datetime(data["datetime"])
