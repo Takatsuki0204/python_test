@@ -17,7 +17,8 @@ connector = sqlite3.connect("C:\Users\TAKATSUKI\Documents\環境BOX\sqlite_db\en
 '''
 sql = ('SELECT * FROM environment '
     'WHERE datetime '
-    "BETWEEN '" + str(today) + " 00:00:00' AND '" + str(today) + " 23:59:59'")'''
+    "BETWEEN '" + str(today) + " 00:00:00' AND '" + str(today) + " 23:59:59'")
+'''
 sql = ('SELECT * FROM environment '
     'WHERE datetime '
     "BETWEEN '2016-06-06 00:00:00' AND '2016-06-06 23:59:59'")
