@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # encoding: utf-8
 
-import MySQLdb, datetime
+import MySQLdb, datetime, time
 import numpy.random as nprand
 
 class db:
@@ -25,9 +25,10 @@ if __name__ == "__main__":
     table = "CREATE TABLE IF NOT EXISTS environment(datetime timestamp, temp float, humidity int)"
     database.create_table(table)
 
-    now = datetime.datetime.now()
-    temp = nprand.uniform(20, 40)
-    rh = nprand.randint(40, 70)
-
-    sql = ("INSERT INTO environment VALUES('%s', '%.2f', '%d')" % (str(now), temp, rh))
-    database.create_table(sql)
+    while True:
+        now = datetime.datetime.now()
+        temp = nprand.uniform(20, 40)
+        rh = nprand.randint(40, 70)
+        sql = ("INSERT INTO environment VALUES('%s', '%.2f', '%d')" % (str(now), temp, rh))
+        database.create_table(sql)
+        time.sleep(60)
