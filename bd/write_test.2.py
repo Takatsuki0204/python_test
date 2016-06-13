@@ -2,6 +2,7 @@
 # encoding: utf-8
 
 import MySQLdb, datetime
+import numpy.random as nprand
 
 class db:
     def __init__(self, ip, dbn, usern, pw, char="utf8"):
@@ -25,5 +26,8 @@ if __name__ == "__main__":
     database.create_table(table)
 
     now = datetime.datetime.now()
-    sql = "INSERT INTO environment VALUES('%s', '30.12345', '60')" % str(now)
+    temp = nprand.uniform(20, 40)
+    rh = nprand.randint(40, 70)
+
+    sql = ("INSERT INTO environment VALUES('%s', '%.2f', '%d')" % (str(now), temp, rh))
     database.create_table(sql)
