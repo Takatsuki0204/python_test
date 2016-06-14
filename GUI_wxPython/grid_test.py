@@ -15,10 +15,11 @@ button_3 = wx.Button(panel, wx.ID_ANY, "3")
 button_4 = wx.Button(panel, wx.ID_ANY, "4")
 
 layout = wx.GridSizer(2, 2) # GridSizerを2行2列で初期化
-layout.Add(button_1)
-layout.Add(button_2)
-layout.Add(button_3)
-layout.Add(button_4)
+layout.Add(button_1, flag=wx.EXPAND | wx.TOP, border=10)
+layout.Add(button_2, flag=wx.EXPAND | wx.LEFT, border=10)
+layout.Add(button_3, flag=wx.EXPAND | wx.RIGHT, border=10)
+# layout.Add(button_4, flag=wx.EXPAND | wx.BOTTOM, border=10)
+layout.Add(button_4, flag=wx.EXPAND | wx.ALL, border=10)
 
 panel.SetSizer(layout)  # パネルへGridSizerをセット
 
