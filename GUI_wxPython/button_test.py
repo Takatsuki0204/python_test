@@ -3,14 +3,11 @@
 
 import wx
 
-
 def click_button_1(event):
     frame.SetStatusText("Click! button_1")
 
-
 def click_button_2(event):
     frame.SetStatusText("Click! button_2")
-
 
 def click_button(event):
     if event.GetId() == 4444:
