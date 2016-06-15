@@ -6,12 +6,12 @@ import wx
 app = wx.App()  # アプリケーション初期化
 
 frame = wx.Frame(None, wx.ID_ANY, u"テストフレーム", size=(300, 300))   # フレーム初期化
-frame.Center()	# 中央へ表示
+frame.Center()  # 中央へ表示
 
 panel = wx.Panel(frame, wx.ID_ANY)  # パネル初期化
 panel.SetBackgroundColour("#AFAFAF")
 
-button_1 = wx.Button(panel, wx.ID_ANY, u"ボタン1") # ボタン初期化
+button_1 = wx.Button(panel, wx.ID_ANY, u"ボタン1")  # ボタン初期化
 button_2 = wx.Button(panel, wx.ID_ANY, u"ボタン2")
 button_3 = wx.Button(panel, wx.ID_ANY, u"ボタン3")
 
