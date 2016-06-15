@@ -23,5 +23,13 @@ notebook.InsertPage(0, panel_1, u"タブ1")  # ノーロブックに追加(タ�
 notebook.InsertPage(1, panel_2, u"タブ2")
 notebook.InsertPage(2, panel_3, u"タブ3")
 
+image_list = wx.ImageList(16, 16)   # ImageList初期化
+icon = wx.Icon("RoBoHoN.ico", wx.BITMAP_TYPE_ICO)   # Icon初期化
+image_list.AddIcon(icon)    # ImageListセット
+notebook.AssignImageList(image_list)    # notebookにセット
+
+notebook.SetPageImage(0, 0)  # アイコン適用(引数はタブインデックスとImageList内のインデックス)
+notebook.SetPageImage(2, 0)
+
 frame.Show()
 app.MainLoop()
