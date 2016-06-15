@@ -24,7 +24,7 @@ layout.Add(button_4, flag=wx.GROW)
 layout.Add(button_5, flag=wx.GROW)
 layout.Add(button_6, flag=wx.GROW)
 layout.AddGrowableRow(0)    # サイズ変更したい行を指定
-layout.AddGrowableCol(0)    # 列を指定
+layout.AddGrowableCol(1)    # 列を指定
 
 panel.SetSizer(layout)
 
