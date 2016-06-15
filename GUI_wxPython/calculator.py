@@ -4,12 +4,10 @@
 import wx
 
 # フレームを継承したトップレベルウィンドウクラス
-
-
 class CalcFrame(wx.Frame):
 
     def __init__(self):
-        wx.Frame.__init__(self, None, wx.ID_ANY, u"電卓", size=(300, 200))
+        wx.Frame.__init__(self, None, wx.ID_ANY, u"電卓", size=(300, 280))
 
         # ステータスバーの初期化
         self.CreateStatusBar()
@@ -22,7 +20,7 @@ class CalcFrame(wx.Frame):
         # 本体部分の構築
         root_panel = wx.Panel(self, wx.ID_ANY)
 
-        text_panel = CommandButtonPanel(root_panel)
+        text_panel = TextPanel(root_panel)
         cmdbutton_panel = CommandButtonPanel(root_panel)
         calcbutton_panel = CalcButtonPanel(root_panel)
 
@@ -35,8 +33,6 @@ class CalcFrame(wx.Frame):
         root_layout.Fit(root_panel)
 
 # CalcFrameにセットするメニューバークラス
-
-
 class CalcMenu(wx.MenuBar):
 
     def __init__(self):
@@ -53,16 +49,52 @@ class CalcMenu(wx.MenuBar):
         self.Append(menu_edit, u"編集")
 
 # 画面上部に表示されるテキスト部分
-
-
 class TextPanel(wx.Panel):
 
     def __init__(self, parent):
         wx.Panel.__init__(self, parent, wx.ID_ANY)
 
-        calc_text = wx.TextCtrl(self, wx.ID_NAY, style=wx.TE_RIGHT)
-        layout = wx.BoxSizer(wx, HORIZONTAL)
+        calc_text = wx.TextCtrl(self, wx.ID_ANY, style=wx.TE_RIGHT)
+        layout = wx.BoxSizer(wx.HORIZONTAL)
         layout.Add(calc_text, 1)
         self.SetSizer(layout)
 
 # 画面中部に表示されるボタン部分
+class CommandButtonPanel(wx.Panel):
+
+    def __init__(self, parent):
+        wx.Panel.__init__(self, parent, wx.ID_ANY)
+
+        button_ce = wx.Button(self, wx.ID_ANY, "CE")
+        button_c = wx.Button(self, wx.ID_ANY, "C")
+        layout = wx.BoxSizer(wx.HORIZONTAL)
+        layout.Add(button_ce, flag=wx.GROW)
+        layout.Add(button_c, flag=wx.GROW)
+        self.SetSizer(layout)
+
+# 画面下部に表示されるボタン部分
+class CalcButtonPanel(wx.Panel):
+
+    def __init__(self, parent):
+        wx.Panel.__init__(self, parent, wx.ID_ANY)
+
+        button_collection = ("7", "8", "9", "/",
+                             "4", "5", "6", "*",
+                             "1", "2", "3", "-",
+                             "0", ".", "=", "+")
+
+        layout = wx.GridSizer(4, 4, 3, 3)
+
+        for i in button_collection:
+            layout.Add(wx.Button(self, wx.ID_ANY, i,
+                                 size=(30, 25)), 1, wx.GROW)
+
+        self.SetSizer(layout)
+
+# カスタムフレームを初期化してアプリケーションを開始
+if __name__ == "__main__":
+
+    app = wx.App()
+    frame = CalcFrame()
+    frame.Show()
+    app.MainLoop()
