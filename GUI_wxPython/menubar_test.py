@@ -3,8 +3,11 @@
 
 import wx
 
+
 def selectMenu(event):
     frame.SetStatusText("MenuSelected! " + str(event.GetId()))
+    if event.GetId() == 2:
+        exit()
 
 app = wx.App()
 frame = wx.Frame(None, wx.ID_ANY, u"テストフレーム", size=(300, 200))
