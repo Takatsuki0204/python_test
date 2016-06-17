@@ -1,17 +1,22 @@
 #! /usr/bin/env python
 # encoding: utf-8
 
-import MySQLdb, datetime, time
+import MySQLdb
+import datetime
+import time
 import numpy.random as nprand
 
+
 class db:
+
     def __init__(self, ip, dbn, usern, pw, char="utf8"):
-        self.connector = MySQLdb.connect(host=ip, db=dbn, user=usern, passwd=pw, charset=char)
+        self.connector = MySQLdb.connect(
+            host=ip, db=dbn, user=usern, passwd=pw, charset=char)
         self.cursor = self.connector.cursor(MySQLdb.cursors.DictCursor)
-    
+
     def closed(self):
         self.connector.close()
-    
+
     def create_table(self, sql):
         self.cursor.execute(sql)
         self.connector.commit()
@@ -29,6 +34,7 @@ if __name__ == "__main__":
         now = datetime.datetime.now()
         temp = nprand.uniform(20, 40)
         rh = nprand.randint(40, 70)
-        sql = ("INSERT INTO environment VALUES('%s', '%.2f', '%d')" % (str(now), temp, rh))
+        sql = ("INSERT INTO environment VALUES('%s', '%.2f', '%d')" %
+               (str(now), temp, rh))
         database.create_table(sql)
         time.sleep(60)
