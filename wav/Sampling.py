@@ -4,6 +4,7 @@ import wave
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def printWaveInfo(wf):
     """WAVEファイルの情報を取得"""
     print "チャンネル数:", wf.getnchannels()
@@ -13,10 +14,6 @@ def printWaveInfo(wf):
     print "パラメータ:", wf.getparams()
     print "長さ(秒):", float(wf.getnframes()) / wf.getframerate()
 
-def main():
-    wf = wave.open("C:\Users\TAKATSUKI\Downloads\se_amb01.wav", "r")
-    printWaveInfo(wf)
-    plot(wf)
 
 def plot(wf):
     # wf = wave.open("C:\Users\TAKATSUKI\Downloads\se_amb01.wav", "r")
@@ -26,6 +23,12 @@ def plot(wf):
     plt.plot(data)
     # plt.plot(data[0:500])
     plt.show()
+
+
+def main():
+    wf = wave.open("C:\Users\TAKATSUKI\Downloads\se_amb01.wav", "r")
+    printWaveInfo(wf)
+    plot(wf)
 
 if __name__ == "__main__":
     main()
