@@ -84,7 +84,7 @@ class CalcButtonPanel(wx.Panel):
     def __init__(self, parent):
         count = 1
         wx.Panel.__init__(self, parent, wx.ID_ANY)
-        self.parent = parent
+        
         button_collection = ("7", "8", "9", "/",
                              "4", "5", "6", "*",
                              "1", "2", "3", "-",
