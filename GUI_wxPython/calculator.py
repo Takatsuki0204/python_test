@@ -39,14 +39,20 @@ class CalcMenu(wx.MenuBar):
         wx.MenuBar.__init__(self)
 
         menu_file = wx.Menu()
-        menu_file.Append(wx.ID_ANY, u"保存")
-        menu_file.Append(wx.ID_ANY, u"終了")
+        menu_file.Append(1, u"保存")
+        menu_file.Append(2, u"終了")
         menu_edit = wx.Menu()
-        menu_edit.Append(wx.ID_ANY, u"コピー")
-        menu_edit.Append(wx.ID_ANY, u"ペースト")
+        menu_edit.Append(3, u"コピー")
+        menu_edit.Append(4, u"ペースト")
 
         self.Append(menu_file, u"ファイル")
         self.Append(menu_edit, u"編集")
+
+        self.Bind(wx.EVT_MENU, self.selectMenu)
+    
+    def selectMenu(self, event):
+        if event.GetId() == 2:
+            exit()
 
 # 画面上部に表示されるテキスト部分
 class TextPanel(wx.Panel):
@@ -65,8 +71,8 @@ class CommandButtonPanel(wx.Panel):
     def __init__(self, parent):
         wx.Panel.__init__(self, parent, wx.ID_ANY)
 
-        button_ce = wx.Button(self, wx.ID_ANY, "CE")
-        button_c = wx.Button(self, wx.ID_ANY, "C")
+        button_ce = wx.Button(self, 11, "CE")
+        button_c = wx.Button(self, 22, "C")
         layout = wx.BoxSizer(wx.HORIZONTAL)
         layout.Add(button_ce, flag=wx.GROW)
         layout.Add(button_c, flag=wx.GROW)
@@ -76,8 +82,9 @@ class CommandButtonPanel(wx.Panel):
 class CalcButtonPanel(wx.Panel):
 
     def __init__(self, parent):
+        count = 1
         wx.Panel.__init__(self, parent, wx.ID_ANY)
-
+        self.parent = parent
         button_collection = ("7", "8", "9", "/",
                              "4", "5", "6", "*",
                              "1", "2", "3", "-",
@@ -86,9 +93,10 @@ class CalcButtonPanel(wx.Panel):
         layout = wx.GridSizer(4, 4, 3, 3)
 
         for i in button_collection:
-            layout.Add(wx.Button(self, wx.ID_ANY, i,
+            layout.Add(wx.Button(self, count, i,
                                  size=(30, 25)), 1, wx.GROW)
-
+            count += 1
+        
         self.SetSizer(layout)
 
 # カスタムフレームを初期化してアプリケーションを開始
