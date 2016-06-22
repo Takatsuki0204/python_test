@@ -26,7 +26,7 @@ def plot(wf):
 
 
 def main():
-    wf = wave.open("C:\Users\TAKATSUKI\Downloads\se_amb01.wav", "r")
+    wf = wave.open("C:/Python27/test/se_amb01.wav", "r")
     printWaveInfo(wf)
     plot(wf)
 
